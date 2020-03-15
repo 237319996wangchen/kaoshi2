@@ -4,12 +4,6 @@ use yii\helpers\Url;
 use \yii\helpers\Json;
 use app\models\Question;
 
-$this->title = '顺序练习';
-$this->params['menu'] = [
-    'title' => $cars->name,
-    'link' => Url::toRoute(['classification/index', 'id' => $cars->id])
-];
-$this->registerCssFile('@web/css/question.css', ['depends' => ['app\assets\AppAsset']]);
 ?>
 <?=$this->render('_crumbs')?>
 <div class="jkbd-page-lianxi inner jkbd-width wid-auto cl lianxi-type-sequence">

@@ -1,0 +1,592 @@
+
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="google-site-verification" content="lFSmn0rlLR-OPkas5c2GxdhTKP4J4PyaahhQ2TNanjs"/>
+    <meta itemprop="image" content="https://static.nowcoder.com/images/logo_87_87.png"/>
+    <meta name="description"  content="在进程状态转换中，不可能发生的状态转换是,快手2020校园招聘秋招笔试--算法B试卷" >
+    <meta name="keywords"  content="快手2020校园招聘秋招笔试--算法B试卷,IT笔试,牛客网" >
+    <title>在进程状态转换中，不可能发生的状态转换是_快手2020校园招聘秋招笔试--算法B试卷_牛客网</title>
+    <link rel="stylesheet" href="//static.nowcoder.com/nc/style/0.0.40/fontcustom/global/global.css">
+    <link rel="stylesheet" href="//static.nowcoder.com/nc/style/0.0.40/common/global.css">
+    <link rel="stylesheet" href="//static.nowcoder.com/nc/style/0.0.40/common/ui.css">
+    <link rel="stylesheet" href="//static.nowcoder.com/nowcoder/1.2.1402/stylesheets/common/base.css">
+    <link rel="stylesheet" href="//static.nowcoder.com/nowcoder/1.2.1402/stylesheets/common/channel/default.css">
+    <link rel="stylesheet" href="//static.nowcoder.com/nowcoder/1.2.1402/stylesheets/pages/result/answerAnalytic.css">
+    <style>
+        textarea.reply-input{width: 688px;}
+    </style>
+</head>
+<body>
+
+
+
+<div class="nk-container">
+    <div class="nowcoder-header js-nowcoder-header">
+        <div class="header-main clearfix">
+            <a class="nowcoder-logo" href="/" title="牛客网"></a>
+            <ul class="nowcoder-navbar">
+                <li  data-type="home"><a href="/">首页</a></li>
+
+                <li  class="active"  data-type="tiku">
+                    <a href="https://www.nowcoder.com/contestRoom">题库</a>
+                    <ul class="sub-nav" data-type="tiku">
+                        <li><a href="https://www.nowcoder.com/contestRoom">公司真题</a></li>
+                        <li><a href="https://www.nowcoder.com/intelligentTest">专项练习</a></li>
+                        <li><a href="https://www.nowcoder.com/activity/oj">在线编程</a></li>
+                        <li><a href="https://www.nowcoder.com/mockexam/MockExam">模拟笔试</a></li>
+                        <li><a href="https://www.nowcoder.com/schoolbooks">教材全解</a></li>
+                        <li><a href="https://www.nowcoder.com/kaoyan">考研真题</a></li>
+                        <li><a href="https://www.nowcoder.com/finalexam">期末考题</a></li>
+                        <li><a href="https://www.nowcoder.com/activity/topics">精华专题</a></li>
+                        <li><a href="https://www.nowcoder.com/questionCenter">试题广场</a></li>
+                    </ul>
+                </li>
+
+
+                <li  data-type="ai-interview">
+                    <span class="ico-nav-new"></span>
+                    <a href="https://www.nowcoder.com/interview/ai/index">面试</a>
+                    <ul class="sub-nav" data-type="courses">
+                        <li><a href="https://www.nowcoder.com/interview/ai/index">AI模拟面试</a></li>
+                        <li><a href="https://www.nowcoder.com/interview/center">面经汇总</a></li>
+                    </ul>
+                </li>
+                <li  data-type="courses">
+                    <a href="https://www.nowcoder.com/courses">学习</a>
+                    <ul class="sub-nav" data-type="courses">
+                        <li><a href="https://www.nowcoder.com/courses">课程</a></li>
+                        <li><a href="https://www.nowcoder.com/blog/blogCenter">专栏 • 文章</a></li>
+                        <li><a href="https://www.nowcoder.com/project/recommend">项目实战</a></li>
+                        <li><a href="https://www.nowcoder.com/library">图书馆</a></li>
+                        <li><a href="https://www.nowcoder.com/stacks">技术栈</a></li>
+                    </ul>
+                </li>
+
+                <li  data-type="recommand"><a href="https://www.nowcoder.com/recommend">求职</a></li>
+                <li  data-type="discuss">
+                    <a href="https://www.nowcoder.com/discuss">讨论区</a>
+                    <ul class="sub-nav" data-type="discuss">
+                        <li><a href="https://www.nowcoder.com/discuss">讨论区</a></li>
+                        <li><a href="https://www.nowcoder.com/circle">圈子</a></li>
+                    </ul>
+                </li>
+                <li  data-type="more">
+                    <a href="javascript:void(0);">发现</a>
+                    <ul class="sub-nav" data-type="more">
+                        <li><a href="https://ac.nowcoder.com/acm/home">竞赛</a></li>
+                        <li><a href="https://www.nowcoder.com/show-offer/index">Offer神器</a></li>
+                        <li><a href="/user/authentication">职业身份认证</a></li>
+                        <li><a href="https://www.nowcoder.com/nowcoders-expert">牛人堂</a></li>
+                        <li><a href="https://www.nowcoder.com/coin/index">牛币兑换中心</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nowcoder-navbar nowcoder-other-nav">
+                <li class="nav-search-wrapper js-nav-search">
+                    <div class="search-input-wrap right">
+                        <label class="icon-search icon-search-btn"><i class="icon-nc-search2"></i></label>
+                        <input type="text" maxlength="255" placeholder="帖子、文章、试题、公司、牛友">
+                    </div>
+                </li>
+                <li>
+                    <a href="/home/resourcemap" class="icon-nc-nav">资源导航</a></li>
+                <li><a href="https://www.nowcoder.com/app" class="icon-mobile-phone">APP</a></li>
+
+                <li class="nav-msg">
+                    <a class="icon-envelope" href="https://www.nowcoder.com/sns/message/48235516/conversation-list" data-unread-conv="">消息</a>
+                </li>
+
+
+                <li class="profile-item">
+                    <a href="https://www.nowcoder.com/profile" class="nav-profile"><div class="img-box"><img src="https://images.nowcoder.com/images/20190724/48235516_1563980426974_605475850F555A9A1D76953CFB3E39A6?x-oss-process=image/resize,m_mfit,h_100,w_100"/></div></a>
+                    <div class="profile-hover-wrapper">
+                        <div class="profile-hover-info">
+              <span>
+                 <span class="profile-hover-name">ppap201907242300324</span>
+                              </span>
+                            <a href="https://www.nowcoder.com/profile" class="profile-hover-btn">个人主页</a>
+                        </div>
+                        <div class="item-profile-box">
+                            <a href="https://www.nowcoder.com/profile/48235516/resume" class="item-profile"><i class="hover-item-ico hover-item-ico1"></i>我的简历</a>
+                            <a href="https://www.nowcoder.com/profile/48235516/tests" class="item-profile"><i class="hover-item-ico hover-item-ico2"></i>刷题</a>
+                            <a href="https://www.nowcoder.com/profile/48235516/courses" class="item-profile"><i class="hover-item-ico hover-item-ico3"></i>课程</a>
+                            <a href="https://www.nowcoder.com/profile/48235516/project/mine" class="item-profile"><i class="hover-item-ico hover-item-ico4"></i>项目</a>
+                            <a href="https://www.nowcoder.com/profile/48235516/note" class="item-profile"><i class="hover-item-ico hover-item-ico5"></i>笔记</a>
+                            <a href="https://www.nowcoder.com/profile/48235516/myFollowings" class="item-profile"><i class="hover-item-ico hover-item-ico6"></i>收藏</a>
+                        </div>
+                        <div class="hover-accout-wrapper">
+                            <a href="https://www.nowcoder.com/profile/48235516/account"><i class="hover-item-ico hover-accout-icon"></i>账号设置</a>
+                            <a href="javascript:void(0);" class="nc-logout"><i class="hover-item-ico hover-accout-logout"></i>退出登录</a>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="nk-main analytic-page clearfix">
+        <div class="menu-box">
+            <ul class="menu clearfix">
+                <li><a href="/test/question/analytic?tid=31514185">评估报告</a></li>
+                <li class="selected"><a href="/test/question/done?tid=31514185&qid=907557">答案解析</a></li>
+            </ul>
+        </div>
+        <span class="js-question-title" style="display:none;">在进程状态转换中，不可能发生的状态转换是</span>
+        <div class="module-box clearfix">
+            <div class="result-subject-item">
+                <h1>每题得分</h1>
+                <ul class="subject-num-list">
+                    <li class="error-order">
+                        <a class="done-hover " href="/test/question/done?tid=31514185&qid=907557#summary" data-qid="907557">
+                            1
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907558#summary" data-qid="907558">
+                            2
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907559#summary" data-qid="907559">
+                            3
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907560#summary" data-qid="907560">
+                            4
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907561#summary" data-qid="907561">
+                            5
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907562#summary" data-qid="907562">
+                            6
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907563#summary" data-qid="907563">
+                            7
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907564#summary" data-qid="907564">
+                            8
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907565#summary" data-qid="907565">
+                            9
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907566#summary" data-qid="907566">
+                            10
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907567#summary" data-qid="907567">
+                            11
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907568#summary" data-qid="907568">
+                            12
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907569#summary" data-qid="907569">
+                            13
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907570#summary" data-qid="907570">
+                            14
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907571#summary" data-qid="907571">
+                            15
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907573#summary" data-qid="907573">
+                            16
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907574#summary" data-qid="907574">
+                            17
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907576#summary" data-qid="907576">
+                            18
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907577#summary" data-qid="907577">
+                            19
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907578#summary" data-qid="907578">
+                            20
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907572#summary" data-qid="907572">
+                            21
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907575#summary" data-qid="907575">
+                            22
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907579#summary" data-qid="907579">
+                            23
+                        </a>
+                    </li>
+                    <li class="error-order">
+                        <a class="" href="/test/question/done?tid=31514185&qid=907580#summary" data-qid="907580">
+                            24
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <input type="hidden" id="questionType" value="1"/>
+            <input type="hidden" id="questionId" value="907557"/>
+            <div class="result-question-box">
+                <div class="subject-question">
+                    <span class="question-number">1</span>
+                    <div class="question-main"><span style="color: rgb(51,51,51);">在进程状态转换中，不可能发生的状态转换是</span></div>
+                </div>
+            </div>
+            <div class="result-subject-item result-subject-answer">
+                <h1>正确答案:
+                    D
+                    &nbsp;&nbsp;你的答案:
+                    空
+                    <span class="font-orange">(错误)</span>
+                </h1>
+                <div class="result-answer-item">
+                    <pre>就绪态→运行态</pre>
+                </div>
+                <div class="result-answer-item">
+                    <pre>运行态→就绪态</pre>
+                </div>
+                <div class="result-answer-item">
+                    <pre>运行态→等待态</pre>
+                </div>
+                <div class="result-answer-item green-answer-item">
+                    <pre>等待态→运行态</pre>
+                </div>
+                <div class="clearfix">
+                    <ul class="oprt-tool clearfix">
+                        <li>
+                            <a href="javascript:void(0);" class="oprt-item oprt-note js-add-note nc-req-auth">
+                                添加笔记
+                            </a>
+                        </li>
+                        <li>
+                            <a data-type="asking" data-count="0"
+                               class="oprt-item oprt-ask js-click-ask nc-req-auth"
+                               href="javascript:void(0);">
+                                求解答(0)
+                            </a>
+                        </li>
+                        <li>
+                            <a class="oprt-item oprt-collect click-follow" href="javascript:void(0);">
+                                收藏
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="oprt-item oprt-edit js-mark" data-id="907557" data-tid="31514185">标记一下</a>
+                        </li>
+                        <li class="oprt-item-share">
+                            <a class="oprt-item oprt-share" href="javascript:void(0);">分享</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="js-nc-title-tips oprt-item oprt-error click-correction" title="新题入库，欢迎纠错">
+                                纠错
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="js-question-evaluate" data-id="907557"></div>
+            </div>
+            <div id="referAnchor"></div>
+            <div class="result-subject-item knowledge-point">
+                <h1>本题知识点</h1>
+                <div class="tags-box">
+                    <a class="tag-label">算法工程师
+                    </a>
+                    <a class="tag-label">快手
+                    </a>
+                    <a class="tag-label">2020
+                    </a>
+                </div>
+            </div>
+            <div class="result-subject-item analysis-mod">
+                <h1 class="clearfix">
+                    <span class="analytic-discuss-num">共有0条讨论</span>
+                    <a href="javascript:void(0);" id="jsDealAnswer" class="btn float-right btn-primary">添加解析</a>
+                </h1>
+                <div class="editor-box" style="display:none;height:280px;">
+                    <div id="jsEditorModuleBody" style="width:896px"></div>
+                    <div class="txtarea-foot clearfix">
+                        <a href="javascript:void(0);" class="btn float-right btn-primary click-pub-point">发表解析</a>
+                    </div>
+                </div>
+                <div class="answer-list" id="commentList" style="display:none;">
+                </div>
+                <div id="commentNone" class="blank-box">
+                    <div class="blank-img"><img src="//static.nowcoder.com/images/sofa.png"></div>
+                    <p>这道题你会答吗？花几分钟告诉大家答案吧！</p>
+                </div>
+            </div>
+            <div class="pre-next-box">
+                <a href="/test/question/done?tid=31514185&qid=907558#summary" class="pre-question">下一题</a>
+                <a href="javascript:void(0);" class="pre-question js-nav-go-top">返回顶部</a>
+            </div>
+            <div class="result-subject-item correct-person-item">
+                <h1>做对这道题的人</h1>
+                <div class="result-avatar-box">
+                    <ul class="result-avatar-list">
+                        <li>
+                            <div class="head-pic-bg">
+                                <a
+                                        href="/profile/915902599" target="_blank"
+                                        class="head-pic"><img src="https://images.nowcoder.com/images/20190226/915902599_1551172975525_D809855E90ED361C502D77D59F5D59FC?x-oss-process=image/resize,m_mfit,h_100,w_100""></a>
+                            </div>
+                            <a
+                                    href="/profile/915902599" target="_blank"
+                                    class="correct-person-name">star💫201902261722917</a>
+                        </li>
+                        <li>
+                            <div class="head-pic-bg">
+                                <a
+                                        href="/profile/618867664" target="_blank"
+                                        class="head-pic"><img src="https://images.nowcoder.com/head/701m.png?x-oss-process=image/resize,m_mfit,h_100,w_100""></a>
+                            </div>
+                            <a
+                                    href="/profile/618867664" target="_blank"
+                                    class="correct-person-name">xiumujin</a>
+                        </li>
+                        <li>
+                            <div class="head-pic-bg">
+                                <a
+                                        href="/profile/1757565" target="_blank"
+                                        class="head-pic"><img src="https://images.nowcoder.com/images/20171030/1757565_1509359394599_7C2C60506876716CCF0E706DB13D4511?x-oss-process=image/resize,m_mfit,h_100,w_100""></a>
+                            </div>
+                            <a
+                                    href="/profile/1757565" target="_blank"
+                                    class="correct-person-name">生来丶一打五</a>
+                        </li>
+                        <li>
+                            <div class="head-pic-bg">
+                                <a
+                                        href="/profile/85512901" target="_blank"
+                                        class="head-pic"><img src="https://images.nowcoder.com/head/924m.png?x-oss-process=image/resize,m_mfit,h_100,w_100""></a>
+                            </div>
+                            <a
+                                    href="/profile/85512901" target="_blank"
+                                    class="correct-person-name">hooa</a>
+                        </li>
+                        <li>
+                            <div class="head-pic-bg">
+                                <a
+                                        href="/profile/331622780" target="_blank"
+                                        class="head-pic"><img src="https://images.nowcoder.com/head/925m.png?x-oss-process=image/resize,m_mfit,h_100,w_100""></a>
+                            </div>
+                            <a
+                                    href="/profile/331622780" target="_blank"
+                                    class="correct-person-name">魏彤</a>
+                        </li>
+                        <li>
+                            <div class="head-pic-bg">
+                                <a
+                                        href="/profile/7423425" target="_blank"
+                                        class="head-pic"><img src="https://images.nowcoder.com/head/47m.png?x-oss-process=image/resize,m_mfit,h_100,w_100""></a>
+                            </div>
+                            <a
+                                    href="/profile/7423425" target="_blank"
+                                    class="correct-person-name">基</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <script></script>
+            <script>
+                window.problem = {
+                    id: 907557,
+                    type: 1,
+                    isAdmin: false,
+                    isMaintainer: false,
+                    uuid: 'b62df87aa7494765b01a1166077e37b6',
+                    curLanguage: '0',
+                    supportLanguages: ''
+                };
+                window.comment = {
+                    count: 0,
+                    all: [],
+                    draft: {"content":""}
+                };
+            </script>
+        </div>
+        <script>
+            window.isLogin = true;
+            window.globalInfo = {
+                ownerId: '48235516',
+                ownerName: 'ppap201907242300324',
+                ownerTinyHead: 'https://images.nowcoder.com/images/20190724/48235516_1563980426974_605475850F555A9A1D76953CFB3E39A6?x-oss-process=image/resize,m_mfit,h_100,w_100',
+                ownerMainHead: 'https://images.nowcoder.com/images/20190724/48235516_1563980426974_605475850F555A9A1D76953CFB3E39A6?x-oss-process=image/resize,m_mfit,h_200,w_200',
+                ownerEmail:  true ,
+                ownerPhone:  true ,
+                ownerType: '1',
+                status: '0',
+                honorLevel: '2',
+                gender: '',
+                isCompleteInfo: true,
+                canLoadInIframe: 'true'
+            };
+            window.useNeteaseCaptcha = true;
+        </script>
+        <script type="text/javascript">
+            window.ncDeployImageRoot = "//static.nowcoder.com/";
+            window.ncJsInDev =  false ;
+            window.ncJsVersion = "1.03.28";
+            window.ncJsPluginVersion = "1.0.17";
+            window.ncIsInNowcoderMainSite = true;
+        </script>
+        <script type="text/javascript">
+            (function () {
+                var oBody = document.body;
+                var sOverflow = oBody.style.overflow;
+                var sUa = (window.navigator || {}).userAgent || '';
+                var m = sUa.match(/MSIE ([^;]*)|Trident.*; rv(?:\s|:)?([0-9.]+)/) || [];
+                var nVersion = +m[1] || +m[2] || 0;
+                nVersion && nVersion <= 8 && _fShowMask();
+                function _fShowMask() {
+                    oBody.style.overflow = 'hidden';
+                    var nWidth = window.document.documentElement.clientWidth;
+                    var nHeight = window.document.documentElement.clientHeight;
+                    var nTop = ('pageYOffset' in window ? window.pageYOffset : document.documentElement.scrollTop) || 0;
+                    var sHtml = [
+                        '<div style="position:absolute;left:0;top:' + nTop + 'px;z-index:99999;width:' + nWidth + 'px;height:' + nHeight + 'px;">',
+                        '<div style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000;opacity:0.5;filter:alpha(opacity=50);"></div>',
+                        '<div class="pop-box" style="width:800px;z-index:100000;left:' + (nWidth - 800) / 2 + 'px;top:' + Math.max(0, (nHeight - 624) / 2) + nTop + 'px;">',
+                        '<div class="pop-title"><h1>浏览器版本过低提示</h1><a href="javascript:void(0);" onclick="closeIE8GlobalMask()" class="pop-close" title="关闭"></a></div>',
+                        '<div class="pop-content clearfix">',
+                        '<div class="pop-subject-tips-wrapper">',
+                        '<a href="javascript:void(0);"><img src="//static.nowcoder.com/fe/style/images/common/res/tips/13.png"></a>',
+                        '<div class="pop-exit-main">你使用的浏览器版本过低，无法正常访问牛客<br />请使用牛客APP或更换浏览器。</div>',
+                        '<div class="pop-download-browser">',
+                        '<ul class="pop-browser-list">',
+                        '<li><p>下载牛客APP</p><div class="pic"><img src="https://uploadfiles.nowcoder.com/app/app_download.png"></div></li>',
+                        '<li><a href="https://static.nowcoder.com/b/i/googlechrome74_32.exe" target="_blank"><p>下载Chrome浏览器</p><div class="pic"><img src="//static.nowcoder.com/images/res/browser/chrome.png"></div></a></li>',
+                        '<li><a href="https://www.firefox.com.cn/download/#more" target="_blank"><p>下载Firefox浏览器</p><div class="pic"><img src="//static.nowcoder.com/images/res/browser/firefox.png"></div></a></li>',
+                        '</ul>',
+                        '<a href="javascript:void(0);" onclick="closeIE8GlobalMask()" class="link-green">我知道访问会出错，但是我还要继续用这个浏览器浏览 &gt;&gt;</a>',
+                        '</div>',
+                        '</div>',
+                        '</div>',
+                        '</div>',
+                        '</div>'].join('');
+                    var oDv = document.createElement('div');
+                    oDv.innerHTML = sHtml;
+                    oBody.appendChild(oDv);
+                    window.closeIE8GlobalMask = function () {
+                        oBody.removeChild(oDv);
+                        oBody.style.overflow = sOverflow;
+                        _fShowBar();
+                    };
+                }
+                function _fShowBar() {
+                    var oDv = document.createElement('div');
+                    oDv.innerHTML = '<div class="tip-block-box" onclick="closeIE8GlobalBar()" style="position:fixed;left:0;top:54px;width:100%;z-index:99999;"><div class="tip-block">你使用的浏览器版本过低，无法正常访问牛客，请使用牛客APP或更换浏览器，<a href="javascript:void(0);">点击查看详情</a>。</div></div>';
+                    oBody.appendChild(oDv);
+                    window.closeIE8GlobalBar  = function () {
+                        oBody.removeChild(oDv);
+                        _fShowMask();
+                    };
+                }
+            })();
+        </script>
+        <script src="//static.nowcoder.com/nowcoder/1.2.1402/javascripts-wp/lib/vendor.dll.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            if (!window.seajs && !window.vendor_library) {
+                var oBody = document.body;
+                var aChild = oBody.childNodes;
+                var oDv = document.createElement('div');
+                oDv.innerHTML = [
+                    '<div style="text-align:center;">',
+                    '<div style="font-size:18px;margin:20px 0;font-weight: bold;">',
+                    '静态文件加载出错，建议使用手机热点，如果想要彻底解决，请按照以下步骤修改电脑的DNS',
+                    '<br />推荐使用以下DNS: 223.5.5.5(首选) 和 223.6.6.6(备用)',
+                    '</div>',
+                    '<img style="border:1px solid #ccc;" src="//qqstatic.nowcoder.com/files/cdn.jpg" />',
+                    '</div>'].join('');
+                aChild.length === 0 && oBody.appendChild(oDv);
+                aChild.length > 0 && oBody.insertBefore(oDv, aChild[0]);
+            }
+        </script>
+        <script src="//static.nowcoder.com/nowcoder/1.2.1402/javascripts-wp/lib/runtime.js" type="text/javascript"></script>
+        <script src="//static.nowcoder.com/nowcoder/1.2.1402/javascripts-wp/lib/common.js" type="text/javascript"></script>
+        <script src="//static.nowcoder.com/nowcoder/1.2.1402/javascripts-wp/lib/env.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "//hm.baidu.com/hm.js?a808a1326b6c06c437de769d1b85b870";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+        <script>
+            window.pageInfo = {
+                isDailyTask: false
+            }
+        </script>
+        <script type="text/javascript" src="//static.nowcoder.com/nowcoder/1.2.1402/javascripts-wp/page/question/test/doneQuestionV2/main.entry.js"></script>
+
+
+
+        <div class="living-layer js-global-tips" style="display:none;">
+            <a href="javascript:void(0);" class="icon-nc-cancel"></a>
+            <a class="cont js-global-tips-href" href="" target="_blank">
+                <i class="icon-nc-play"></i>
+                <div class="living-layer-cont">
+                    <p class="living-layer-title"></p>
+                    <p></p>
+                </div>
+            </a>
+        </div>
+
+
+
+
+    </div>
+</html>

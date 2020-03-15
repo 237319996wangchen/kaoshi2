@@ -1,3 +1,19 @@
+/*
+ Navicat Premium Data Transfer
+
+ Source Server         : 测试
+ Source Server Type    : MySQL
+ Source Server Version : 80016
+ Source Host           : localhost:3306
+ Source Schema         : yii2_basic_tests
+
+ Target Server Type    : MySQL
+ Target Server Version : 80016
+ File Encoding         : 65001
+
+ Date: 15/03/2020 16:43:55
+*/
+
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -7,17 +23,17 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `ks_admin`;
 CREATE TABLE `ks_admin` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '管理员ID',
-  `username` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT '管理员账号',
-  `email` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT '管理员邮箱',
-  `face` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '管理员头像',
-  `role` varchar(64) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '管理员角色',
+  `username` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '管理员账号',
+  `email` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '管理员邮箱',
+  `face` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '管理员头像',
+  `role` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '管理员角色',
   `status` tinyint(1) NOT NULL DEFAULT '10' COMMENT '状态',
-  `auth_key` varchar(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `password_hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `password_reset_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `auth_key` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `password_hash` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `password_reset_token` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `last_time` int(11) NOT NULL DEFAULT '0' COMMENT '上一次登录时间',
-  `last_ip` char(15) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '上一次登录的IP',
-  `address` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '地址信息',
+  `last_ip` char(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '上一次登录的IP',
+  `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '地址信息',
   `created_at` int(11) NOT NULL DEFAULT '0' COMMENT '创建时间',
   `created_id` int(11) NOT NULL DEFAULT '0' COMMENT '创建用户',
   `updated_at` int(11) NOT NULL DEFAULT '0' COMMENT '修改时间',
@@ -43,16 +59,26 @@ DROP TABLE IF EXISTS `ks_admin_operate_logs`;
 CREATE TABLE `ks_admin_operate_logs` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '日志ID',
   `admin_id` int(11) NOT NULL DEFAULT '0' COMMENT '操作管理员ID',
-  `admin_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '操作管理员名称',
-  `action` varchar(64) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '方法',
-  `index` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '数据标识',
-  `request` text COLLATE utf8_unicode_ci NOT NULL COMMENT '请求参数',
-  `response` text COLLATE utf8_unicode_ci NOT NULL COMMENT '响应数据',
-  `ip` char(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '请求IP',
+  `admin_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '操作管理员名称',
+  `action` varchar(64) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '方法',
+  `index` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '数据标识',
+  `request` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '请求参数',
+  `response` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '响应数据',
+  `ip` char(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '请求IP',
   `created_at` int(11) NOT NULL DEFAULT '0' COMMENT '创建时间',
   PRIMARY KEY (`id`),
   KEY `admin_name` (`admin_name`) USING BTREE COMMENT '管理员'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='管理员操作日志记录信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='管理员操作日志记录信息表';
+
+-- ----------------------------
+-- Records of ks_admin_operate_logs
+-- ----------------------------
+BEGIN;
+INSERT INTO `ks_admin_operate_logs` VALUES (1, 1, 'super', 'admin/question/create', '', '{\"id\":\"\",\"question_title\":\"1\",\"question_content\":\"1\",\"course_id\":\"31\",\"guan_id\":\"1\",\"answers\":[\"1\",\"2\",\"3\",\"4\"],\"answer_type\":\"1\",\"answer_id\":\"0\",\"special_id\":\"3\",\"question_img\":\"\",\"status\":\"1\"}', '{\"errCode\":0,\"errMsg\":\"操作成功\",\"data\":{\"question_title\":\"1\",\"question_content\":\"1\",\"course_id\":\"31\",\"guan_id\":\"1\",\"answers\":\"[\\\"1\\\",\\\"2\\\",\\\"3\\\",\\\"4\\\"]\",\"answer_type\":\"1\",\"answer_id\":\"0\",\"special_id\":\"3\",\"question_img\":\"\",\"status\":\"1\",\"created_at\":1583907889,\"updated_at\":1583907889,\"id\":1013}}', '::1', 1583907889);
+INSERT INTO `ks_admin_operate_logs` VALUES (2, 1, 'super', 'admin/question/update', '1013', '{\"id\":\"1013\",\"question_title\":\"1\",\"question_content\":\"1\",\"course_id\":\"31\",\"guan_id\":\"2\",\"answers\":[\"1\",\"2\",\"3\",\"4\"],\"answer_type\":\"1\",\"answer_id\":\"0\",\"special_id\":\"3\",\"question_img\":\"\",\"status\":\"1\"}', '{\"errCode\":0,\"errMsg\":\"操作成功\",\"data\":{\"id\":1013,\"question_title\":\"1\",\"question_content\":\"1\",\"question_img\":\"\",\"answer_type\":\"1\",\"answers\":\"[\\\"1\\\",\\\"2\\\",\\\"3\\\",\\\"4\\\"]\",\"status\":\"1\",\"answer_id\":\"0\",\"course_id\":\"31\",\"guan_id\":\"2\",\"special_id\":\"3\",\"error_number\":0,\"do_number\":0,\"created_at\":1583907889,\"updated_at\":1583908035}}', '::1', 1583908035);
+INSERT INTO `ks_admin_operate_logs` VALUES (3, 1, 'super', 'admin/question/create', '', '{\"id\":\"\",\"question_title\":\"1\",\"question_content\":\"1\",\"course_id\":\"31\",\"guan_id\":\"2\",\"answers\":[\"1\",\"2\",\"3\",\"4\",\"4\"],\"answer_type\":\"1\",\"answer_id\":\"3\",\"special_id\":\"3\",\"question_img\":\"\",\"status\":\"1\"}', '{\"errCode\":0,\"errMsg\":\"操作成功\",\"data\":{\"question_title\":\"1\",\"question_content\":\"1\",\"course_id\":\"31\",\"guan_id\":\"2\",\"answers\":\"[\\\"1\\\",\\\"2\\\",\\\"3\\\",\\\"4\\\",\\\"4\\\"]\",\"answer_type\":\"1\",\"answer_id\":\"3\",\"special_id\":\"3\",\"question_img\":\"\",\"status\":\"1\",\"created_at\":1584210881,\"updated_at\":1584210881,\"id\":1014}}', '::1', 1584210881);
+INSERT INTO `ks_admin_operate_logs` VALUES (4, 1, 'super', 'admin/question/create', '', '{\"id\":\"\",\"question_title\":\"1\",\"question_content\":\"2\",\"course_id\":\"31\",\"guan_id\":\"2\",\"answers\":[\"1\",\"2\",\"3\",\"4\"],\"answer_type\":\"3\",\"answer_id\":[\"2\",\"3\"],\"special_id\":\"0\",\"question_img\":\"\",\"status\":\"1\"}', '{\"errCode\":0,\"errMsg\":\"操作成功\",\"data\":{\"question_title\":\"1\",\"question_content\":\"2\",\"course_id\":\"31\",\"guan_id\":\"2\",\"answers\":\"[\\\"1\\\",\\\"2\\\",\\\"3\\\",\\\"4\\\"]\",\"answer_type\":\"3\",\"answer_id\":\"[2,3]\",\"special_id\":\"0\",\"question_img\":\"\",\"status\":\"1\",\"created_at\":1584210980,\"updated_at\":1584210980,\"id\":1015}}', '::1', 1584210980);
+COMMIT;
 
 -- ----------------------------
 -- Table structure for ks_auth_assignment
@@ -420,35 +446,35 @@ INSERT INTO `ks_auth_rule` VALUES ('auth-assignment', 'O:38:\"jinxing\\admin\\ru
 COMMIT;
 
 -- ----------------------------
--- Table structure for ks_car_type
+-- Table structure for ks_course
 -- ----------------------------
-DROP TABLE IF EXISTS `ks_car_type`;
-CREATE TABLE `ks_car_type` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `name` varchar(255) NOT NULL COMMENT '名称',
-  `desc` varchar(255) NOT NULL COMMENT '说明',
-  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT ' 状态(1 开启 0 关闭)',
+DROP TABLE IF EXISTS `ks_course`;
+CREATE TABLE `ks_course` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '科目ID',
+  `car_id` smallint(4) unsigned NOT NULL COMMENT '车型ID ',
+  `name` varchar(255) NOT NULL COMMENT '科目分类信息',
+  `desc` text NOT NULL COMMENT '说明信息',
   `sort` tinyint(2) unsigned NOT NULL DEFAULT '100' COMMENT '排序',
-  `image` varchar(255) NOT NULL DEFAULT '' COMMENT '使用图片',
-  `created_at` int(11) unsigned NOT NULL COMMENT '创建时间',
+  `status` tinyint(2) unsigned NOT NULL DEFAULT '1' COMMENT '状态 (1 开启 0 关闭)',
+  `created_at` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `config` text NOT NULL COMMENT '配置信息',
+  `image` varchar(100) NOT NULL COMMENT '图片信息',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='车型配置表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='科目信息表(主分类)';
 
 -- ----------------------------
--- Records of ks_car_type
+-- Records of ks_course
 -- ----------------------------
 BEGIN;
-INSERT INTO `ks_car_type` VALUES (1, '小车', '小车车型. 适用车型：C1/C2照', 1, 1, '/public/car-type/58fc0f59dd3a5.png', 1492832231);
-INSERT INTO `ks_car_type` VALUES (2, '大车', '大车车型', 1, 2, '/public/car-type/58fc0b7ab557a.png', 1492832259);
-INSERT INTO `ks_car_type` VALUES (3, '客车', '客车车型', 1, 3, '/public/car-type/58fc0ab02cfe1.png', 1492832449);
-INSERT INTO `ks_car_type` VALUES (4, '摩托车', '测试摩托车', 1, 4, '/public/car-type/58fc0bb14ef73.png', 1492913077);
+INSERT INTO `ks_course` VALUES (1, 1, '科目一', '科目一，又称科目一理论考试、驾驶员理论考试，是机动车驾驶证考核的一部分 。根据《机动车驾驶证申领和使用规定》，考 试内容包括驾车理论基础、道路安全法律法规、地方性法规等相关知识。考试形式为上机考试，100道题，90分及以上过关。', 1, 1, 1492835463, '', '');
+INSERT INTO `ks_course` VALUES (2, 1, '科目四', '科目四，又称科目四理论考试、驾驶员理论考试，是机动车驾驶证考核的一部分。公安部123号令实施后，科目三考试分为两项内容，除了路考，增加了安全文明驾驶考试，俗称“科目四”，考量“车德”。因为这个考试在科目三之后进行，所以大家都习惯称之为科目四考试。实际的官方说法中没有科目四一说。', 2, 1, 1492835656, '{\"passingScore\":\"72\",\"time\":\"60\",\"judgmentNumber\":\"10\",\"selectNumber\":\"40\",\"multipleNumber\":\"30\",\"shortNumber\":\"5\",\"judgmentScore\":\"2\",\"selectScore\":\"2\",\"multipleScore\":\"3\",\"shortScore\":\"5\"}', '');
 COMMIT;
 
 -- ----------------------------
--- Table structure for ks_chapter
+-- Table structure for ks_guan
 -- ----------------------------
-DROP TABLE IF EXISTS `ks_chapter`;
-CREATE TABLE `ks_chapter` (
+DROP TABLE IF EXISTS `ks_guan`;
+CREATE TABLE `ks_guan` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '章节分类ID',
   `name` varchar(255) NOT NULL COMMENT '章节分类名称',
   `sort` smallint(6) NOT NULL DEFAULT '100' COMMENT '排序',
@@ -459,13 +485,13 @@ CREATE TABLE `ks_chapter` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='章节分类信息表';
 
 -- ----------------------------
--- Records of ks_chapter
+-- Records of ks_guan
 -- ----------------------------
 BEGIN;
-INSERT INTO `ks_chapter` VALUES (1, '第一章 道路交通安全法律、法规和规章', 1, 1476172331, 1493087023, 1);
-INSERT INTO `ks_chapter` VALUES (2, '第二章 交通信号', 2, 1476172350, 1493087099, 1);
-INSERT INTO `ks_chapter` VALUES (3, '第三章 安全行车、文明驾驶基础知识', 3, 1476172371, 1493087105, 2);
-INSERT INTO `ks_chapter` VALUES (4, '第四章 机动车驾驶操作相关基础知识', 1, 1476172399, 1542260806, 2);
+INSERT INTO `ks_guan` VALUES (1, '第一章 道路交通安全法律、法规和规章', 1, 1476172331, 1493087023, 1);
+INSERT INTO `ks_guan` VALUES (2, '第二章 交通信号', 2, 1476172350, 1493087099, 1);
+INSERT INTO `ks_guan` VALUES (3, '第三章 安全行车、文明驾驶基础知识', 3, 1476172371, 1493087105, 2);
+INSERT INTO `ks_guan` VALUES (4, '第四章 机动车驾驶操作相关基础知识', 1, 1476172399, 1542260806, 2);
 COMMIT;
 
 -- ----------------------------
@@ -523,15 +549,15 @@ CREATE TABLE `ks_question` (
   `answers` text NOT NULL COMMENT '问题信息',
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '状态(1 启用 0 停用)',
   `answer_id` varchar(255) NOT NULL DEFAULT '0' COMMENT '正确答案ID',
-  `subject_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '所属科目ID',
-  `chapter_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '所属章节',
+  `course_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '所属课程',
+  `guan_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '所属关',
   `special_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '专项ID',
   `error_number` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '错误人数',
   `do_number` int(11) NOT NULL DEFAULT '0' COMMENT '做了该题目人数',
   `created_at` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
   `updated_at` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1013 DEFAULT CHARSET=utf8 COMMENT='题库信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=1016 DEFAULT CHARSET=utf8 COMMENT='题库信息表';
 
 -- ----------------------------
 -- Records of ks_question
@@ -1546,9 +1572,12 @@ INSERT INTO `ks_question` VALUES (1006, '以下哪个指示灯亮时，表示油
 INSERT INTO `ks_question` VALUES (1007, '行车中，燃油报警灯亮，应及时到附近加油站加油，以免造成车辆乘员滞留公路，发生交通事故。', '不及时加油，还可能造成汽油泵损坏。', NULL, 2, '[\"A、正确\",\"B、错误\"]', 1, '0', 1, 1, 0, 0, 0, 1542337010, 1542337010);
 INSERT INTO `ks_question` VALUES (1008, '以下哪个指示灯亮时，表示发动机温度过高？', '图1表示机油指示灯；图2表示水温指示灯，此灯常亮说明温度过高；图3是ABS指示灯；图4是燃油指示灯。', 'http://file.open.jiakaobaodian.com/tiku/res/1162900.jpg', 1, '[\"A、图1\",\"B、图3\",\"C、图2\",\"D、图4\"]', 1, '2', 1, 1, 4, 0, 0, 1542337011, 1542337011);
 INSERT INTO `ks_question` VALUES (1009, '行车中水温报警灯亮，下列可能是其原因的是？', '冷却液过少才会导致发动机水温过高。', NULL, 1, '[\"A、冷却液过多\",\"B、缺少冷却液\",\"C、指示灯损坏\",\"D、缺少润滑油\"]', 1, '1', 1, 1, 0, 0, 0, 1542337012, 1542337012);
-INSERT INTO `ks_question` VALUES (1010, '以下哪个指示灯亮时，提醒驾驶人安全带插头未插入锁扣？', '图1表示安全带插头未插入锁扣；图2是水温指示灯；图3是ABS指示灯；图4是燃油指示灯。', 'http://file.open.jiakaobaodian.com/tiku/res/1163100.jpg', 1, '[\"A、图3\",\"B、图4\",\"C、图1\",\"D、图2\"]', 1, '2', 1, 1, 4, 0, 0, 1542337013, 1542337013);
-INSERT INTO `ks_question` VALUES (1011, '车辆因故障等原因需被牵引时，以下说法正确的是什么？', '打开报警灯是必须的，而且被牵引的机动车除驾驶人外不得载人，不得拖带挂车。', 'http://file.open.jiakaobaodian.com/tiku/res/1163200.jpg', 1, '[\"A、前后车均应打开报警灯\",\"B、所有车辆都应让行\",\"C、两车尽量快速行驶\",\"D、不受交通信号限制\"]', 1, '0', 1, 1, 4, 0, 0, 1542337014, 1542337014);
-INSERT INTO `ks_question` VALUES (1012, '车辆发生意外，要及时打开哪个灯?', '图1是示宽指示灯；图2是雾灯指示灯；图3是远光指示灯；图4是危险报警闪光灯按钮，发生意外时应该打开危险报警闪光灯。', 'http://file.open.jiakaobaodian.com/tiku/res/1163300.jpg', 1, '[\"A、图4\",\"B、图3\",\"C、图1\",\"D、图2\"]', 1, '0', 1, 1, 4, 0, 0, 1542337015, 1542337015);
+INSERT INTO `ks_question` VALUES (1010, '以下哪个指示灯亮时，提醒驾驶人安全带插头未插入锁扣？', '图1表示安全带插头未插入锁扣；图2是水温指示灯；图3是ABS指示灯；图4是燃油指示灯。', 'http://file.open.jiakaobaodian.com/tiku/res/1163100.jpg', 3, '[\"A、图3\",\"B、图4\",\"C、图1\",\"D、图2\"]', 1, '2', 31, 2, 4, 0, 0, 1542337013, 1542337013);
+INSERT INTO `ks_question` VALUES (1011, '车辆因故障等原因需被牵引时，以下说法正确的是什么？', '打开报警灯是必须的，而且被牵引的机动车除驾驶人外不得载人，不得拖带挂车。', 'http://file.open.jiakaobaodian.com/tiku/res/1163200.jpg', 1, '[\"A、前后车均应打开报警灯\",\"B、所有车辆都应让行\",\"C、两车尽量快速行驶\",\"D、不受交通信号限制\"]', 1, '0', 31, 2, 4, 0, 0, 1542337014, 1542337014);
+INSERT INTO `ks_question` VALUES (1012, '车辆发生意外，要及时打开哪个灯?', '图1是示宽指示灯；图2是雾灯指示灯；图3是远光指示灯；图4是危险报警闪光灯按钮，发生意外时应该打开危险报警闪光灯。', 'http://file.open.jiakaobaodian.com/tiku/res/1163300.jpg', 3, '[\"A、图4\",\"B、图3\",\"C、图1\",\"D、图2\"]', 1, '0', 31, 2, 4, 0, 0, 1542337015, 1542337015);
+INSERT INTO `ks_question` VALUES (1013, '1', '1', '', 1, '[\"1\",\"2\",\"3\",\"4\"]', 1, '0', 31, 2, 3, 0, 0, 1583907889, 1583908035);
+INSERT INTO `ks_question` VALUES (1014, '1', '1', '', 1, '[\"1\",\"2\",\"3\",\"4\",\"4\"]', 1, '3', 31, 2, 3, 0, 0, 1584210881, 1584210881);
+INSERT INTO `ks_question` VALUES (1015, '1', '2', '', 3, '[\"1\",\"2\",\"3\",\"4\"]', 1, '[2,3]', 31, 2, 0, 0, 0, 1584210980, 1584210980);
 COMMIT;
 
 -- ----------------------------
@@ -1583,48 +1612,23 @@ INSERT INTO `ks_special` VALUES (10, 0, 2, '难题', 100, 1476519608, 1476519608
 COMMIT;
 
 -- ----------------------------
--- Table structure for ks_subject
--- ----------------------------
-DROP TABLE IF EXISTS `ks_subject`;
-CREATE TABLE `ks_subject` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '科目ID',
-  `car_id` smallint(4) unsigned NOT NULL COMMENT '车型ID ',
-  `name` varchar(255) NOT NULL COMMENT '科目分类信息',
-  `desc` text NOT NULL COMMENT '说明信息',
-  `sort` tinyint(2) unsigned NOT NULL DEFAULT '100' COMMENT '排序',
-  `status` tinyint(2) unsigned NOT NULL DEFAULT '1' COMMENT '状态 (1 开启 0 关闭)',
-  `created_at` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
-  `config` text NOT NULL COMMENT '配置信息',
-  `image` varchar(100) NOT NULL COMMENT '图片信息',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='科目信息表(主分类)';
-
--- ----------------------------
--- Records of ks_subject
--- ----------------------------
-BEGIN;
-INSERT INTO `ks_subject` VALUES (1, 1, '科目一', '科目一，又称科目一理论考试、驾驶员理论考试，是机动车驾驶证考核的一部分 。根据《机动车驾驶证申领和使用规定》，考 试内容包括驾车理论基础、道路安全法律法规、地方性法规等相关知识。考试形式为上机考试，100道题，90分及以上过关。', 1, 1, 1492835463, '', '');
-INSERT INTO `ks_subject` VALUES (2, 1, '科目四', '科目四，又称科目四理论考试、驾驶员理论考试，是机动车驾驶证考核的一部分。公安部123号令实施后，科目三考试分为两项内容，除了路考，增加了安全文明驾驶考试，俗称“科目四”，考量“车德”。因为这个考试在科目三之后进行，所以大家都习惯称之为科目四考试。实际的官方说法中没有科目四一说。', 2, 1, 1492835656, '{\"passingScore\":\"72\",\"time\":\"60\",\"judgmentNumber\":\"10\",\"selectNumber\":\"40\",\"multipleNumber\":\"30\",\"shortNumber\":\"5\",\"judgmentScore\":\"2\",\"selectScore\":\"2\",\"multipleScore\":\"3\",\"shortScore\":\"5\"}', '');
-COMMIT;
-
--- ----------------------------
 -- Table structure for ks_user
 -- ----------------------------
 DROP TABLE IF EXISTS `ks_user`;
 CREATE TABLE `ks_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-  `phone` char(11) COLLATE utf8_unicode_ci NOT NULL,
-  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户名称',
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '邮箱',
-  `face` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '用户头像',
+  `phone` char(11) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT '用户名称',
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '邮箱',
+  `face` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '用户头像',
   `status` smallint(6) NOT NULL DEFAULT '10' COMMENT '状态',
-  `auth_key` varchar(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '自动登录密钥',
-  `password_hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '密码哈希值',
-  `password_reset_token` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '重新登录哈希值',
+  `auth_key` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '自动登录密钥',
+  `password_hash` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '密码哈希值',
+  `password_reset_token` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '重新登录哈希值',
   `created_at` int(11) NOT NULL COMMENT '创建时间',
   `updated_at` int(11) NOT NULL COMMENT '修改时间',
   `last_time` int(11) NOT NULL DEFAULT '0' COMMENT '上一次登录时间',
-  `last_ip` char(12) COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '上一次登录IP',
+  `last_ip` char(12) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '' COMMENT '上一次登录IP',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`) USING BTREE,
   UNIQUE KEY `phone` (`phone`) USING BTREE,

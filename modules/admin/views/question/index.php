@@ -88,27 +88,13 @@ $this->params['breadcrumbs'][] = $this->title;
         });
 
         var aTypeColor = {"1": "label-success", "2": "label-info", "3": "label-pink", "4": "label-inverse"};
-
         var aSubject = <?=$subject?>,
             aSpecial = <?=$special?>,
             aChapter = <?=$chapter?>,
             aStatus = <?=$status?>,
             aColor = <?=$color?>,
-            aType = <?=$type?>,
-            aCars = <?=$cars?>,
-            aCarSubject = <?=$car_subject?>;
+            aType = <?=$type?>;
 
-        function getCarBySubject(intSubject) {
-            for (var i in aCarSubject) {
-                if (aCarSubject[i][intSubject]) {
-                    return i;
-                }
-            }
-
-            return 0;
-        }
-
-        aCars["0"] = "请选择";
         var myTable = meTables({
             title: "题库信息",
             fileSelector: ["#image-file", "#upload-xls"],
@@ -146,24 +132,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         sortable: false,
                         isHide: true
                     },
+
                     {
-                        title: "考试类型",
-                        data: null,
-                        value: aCars,
-                        edit: {
-                            type: "select",
-                            name: "car_id",
-                            default: 0,
-                            id: "car-id",
-                            required: true,
-                            number: true
-                        },
-                        sortable: false,
-                        isHide: true
-                    },
-                    {
-                        title: "所属科目",
-                        data: "subject_id",
+                        title: "所属课程",
+                        data: "course_id",
                         value: aSubject,
                         edit: {type: "select", default: 1, id: "subject-id", required: true, number: true},
                         search: {type: "select"},
@@ -173,8 +145,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         }
                     },
                     {
-                        title: "所属章节",
-                        data: "chapter_id",
+                        title: "所属关卡",
+                        data: "guan_id",
                         value: aChapter,
                         search: {type: "select"},
                         edit: {type: "select", id: "chapter-id", number: true},
@@ -309,8 +281,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         initAnswers("answers", arr);
                         // 选择答案
                         initAnswerId(arr, data.answer_id);
-                        // 设置类型
-                        $("#car-id").val(getCarBySubject(data.subject_id));
                     }
                     break;
             }
@@ -420,36 +390,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 });
             });
 
-            // 选择车型联动科目
-            $("#car-id").change(function () {
-                var v = parseInt($(this).val()), html = '<option value="">请选择</option>';
-                if (v) {
-                    if (aCarSubject[v]) {
-                        for (var x in aCarSubject[v]) {
-                            html += '<option value="' + x + '"> ' + aCarSubject[v][x] + ' </option>';
-                        }
 
-                        $("#subject-id").html(html);
-                    } else {
-                        mt.ajax({
-                            url: "<?=Url::toRoute(['subject'])?>",
-                            data: {cid: v},
-                            type: "POST",
-                            dataType: "json"
-                        }).done(function (json) {
-                            if (json.errCode === 0) {
-                                for (var x in json.data) {
-                                    html += '<option value="' + json.data[x]["id"] + '"> ' + json.data[x]["name"] + ' </option>';
-                                }
-
-                                $("#subject-id").html(html);
-                            } else {
-                                layer.msg(json.errMsg);
-                            }
-                        });
-                    }
-                }
-            });
 
             // 选择科目联动章节
             $("#subject-id").add("#upload-subject-id").change(function () {

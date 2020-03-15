@@ -158,25 +158,25 @@ AppAsset::register($this);
                 <input name="rePassword" class="i-password form-control" required="true" rangelength="[6, 50]"
                        equalTo="#m-password" placeholder="确认密码" type="password">
             </div>
-            <div class="form-group">
-                <div class="col-sm-6 pl-none">
-                    <input name="verifyCode" class="captchaCode form-control pull-left" required="true" minlength="4"
-                           maxlength="6" placeholder="请输入图片验证码" type="text">
-                </div>
-                <div class="col-sm-6">
-                    <?= Captcha::widget([
-                        'name'          => 'captchaimg',
-                        'captchaAction' => 'site/captcha',
-                        'imageOptions'  => [
-                            'id'    => 'captchaimg',
-                            'title' => '换一个',
-                            'alt'   => '换一个',
-                            'style' => 'cursor:pointer;margin-left:25px;'
-                        ],
-                        'template'      => '{image}'
-                    ]) ?>
-                </div>
-            </div>
+<!--            <div class="form-group">-->
+<!--                <div class="col-sm-6 pl-none">-->
+<!--                    <input name="verifyCode" class="captchaCode form-control pull-left" required="true" minlength="4"-->
+<!--                           maxlength="6" placeholder="请输入图片验证码" type="text">-->
+<!--                </div>-->
+<!--                <div class="col-sm-6">-->
+<!--                    --><?//= Captcha::widget([
+//                        'name'          => 'captchaimg',
+//                        'captchaAction' => 'site/captcha',
+//                        'imageOptions'  => [
+//                            'id'    => 'captchaimg',
+//                            'title' => '换一个',
+//                            'alt'   => '换一个',
+//                            'style' => 'cursor:pointer;margin-left:25px;'
+//                        ],
+//                        'template'      => '{image}'
+//                    ]) ?>
+<!--                </div>-->
+<!--            </div>-->
             <div class="form-group">
                 <p class="other-tips">点击“注册”按钮，既表示你同意<a rel="nofollow" target="_blank"
                                                         href="<?= Url::toRoute(['article/detail', 'id' => 1]) ?>">《用户协议》</a>

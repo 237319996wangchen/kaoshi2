@@ -32,7 +32,7 @@ class ClassificationController extends Controller
 
     /**
      * 章节信息
-     * 
+     *
      * @param $id
      *
      * @return mixed|string

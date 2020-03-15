@@ -6,4 +6,6 @@ return [
     'user.passwordResetTokenExpire' => 3600,
     'cacheTime'                     => 86400,                  // 用户登录的缓存时间
     'status'                        => ['停用', '启用'],        // 通用状态
+    'tokenUrl'                      => 'http://jajava.cn/getToken',        // 通用状态
+    'courseUrl'                    => 'http://jajava.cn/api/getTestRelativeInfo',        // 通用状态
 ];

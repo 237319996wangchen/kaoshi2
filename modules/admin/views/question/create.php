@@ -29,7 +29,7 @@ AdminAsset::meTablesRegister($this);
     <div class="form-group">
         <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 所属科目 </label>
         <div class="col-sm-9">
-            <?=Html::dropDownList('subject_id', $subject_id, $subject, [
+            <?=Html::dropDownList('course_id', $subject_id, $subject, [
                 'class' => 'col-xs-10 col-sm-5',
                 'id' => 'subject-id',
                 'number' => 'true',
@@ -39,9 +39,9 @@ AdminAsset::meTablesRegister($this);
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 所属章节 </label>
+        <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 所属课程 </label>
         <div class="col-sm-9">
-            <?=Html::dropDownList('chapter_id', $chapter_id, $chapter, [
+            <?=Html::dropDownList('guan_id', $chapter_id, $chapter, [
                 'class' => 'col-xs-10 col-sm-5',
                 'id' => 'chapter-id',
                 'number' => 'true',

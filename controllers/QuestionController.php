@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\UserScore;
 use Yii;
 use app\models\Subject;
 use app\models\UserCollect;
@@ -29,78 +30,26 @@ class QuestionController extends Controller
     {
         // 接收参数
         $request   = Yii::$app->request;
-        $subjectId = (int)$request->get('subject', 1) ?: 1;       // 科目ID
-        $type      = $request->get('type', 'all');                // 类型 chapter and special and null
-        $cid       = (int)$request->get('cid');                               // 对应类型子类ID
-        $style     = $request->get('style', 'sequence');          // 答题类型 sequence 顺序 and random 随机
-
-        // 查询科目, 有问题抛出错误
-        if (!$subject = Subject::findOne($subjectId)) {
-            return $this->errorRedirect('科目信息不存在');
-        }
-
-        $cars   = $subject->car;
-        $crumbs = [
-            [
-                'label' => $cars->name,
-                'url'   => Url::toRoute(['classification/index', 'id' => $cars->id])
-            ],
-            [
-                'label' => $subject->name,
-                'url'   => Url::toRoute(['classification/subject', 'id' => $subject->id]),
-            ]
-        ];
-
+        $courseId = $request->get('course_id', '31');       // 科目ID
+        $guanId = $request->get('guan_id', '2');                // 类型 chapter and special and null
         $where = [
-            'status'     => Question::STATUS_KEY,
-            'subject_id' => $subject->id
+            'and',
+            ['=', 'course_id', $courseId],
+            ['=', 'guan_id', $guanId],
+            ['=', 'status', Question::STATUS_KEY],
         ];
-
-        // 全部题目
-        $allTotal = (int)Question::find()->where($where)->count(); // 全部题库
-
-        // 根据类型查询数据
-        switch ($type) {
-            case 'chapter':
-                $where['chapter_id'] = $cid;
-                $chapter             = Chapter::findOne($cid);
-                $crumbs[]            = ['label' => $chapter ? $chapter->name : '', 'url' => Url::toRoute(['question/chapter'])];
-                break;
-            case 'special':
-                $where['special_id'] = $cid;
-                $special             = Special::findOne($cid);
-                $crumbs[]            = ['label' => $special ? $special->name : '', 'url' => Url::toRoute(['question/special'])];
-                break;
-        }
-
-        $crumbs[]                              = $style == 'sequence' ? '顺序练习' : '随机练习';
-        Yii::$app->view->params['breadcrumbs'] = $crumbs;
-
         // 查询一条数据
-        if (!$question = Question::findOne($where)) {
+        $query = Question::find();
+        $question = $query->where($where)->one();
+        if (empty($question) ) {
             return $this->errorRedirect('问题不存在');
         }
-
         // 开始查询
         $total = (int)Question::find()->where($where)->count();
-        $ids   = Question::getAllIds($where);
-        if ($style == 'random') {
-            shuffle($ids);
-        }
-
-        // 查询问题答案
-        $answer = Json::decode($question->answers);
+       // 查询问题答案
         return $this->render('index', [
-            'cars'       => $cars, // 车型信息
-            'subject'    => $subject,
-            'allTotal'   => $allTotal,
             'total'      => $total,
-            'hasCollect' => UserCollect::hasCollect($question->id, $subject->id),
-            'allIds'     => Json::encode($ids),
             'question'   => $question,
-            'answer'     => $answer,
-            'style'      => $style,
-            'type'       => $type
         ]);
     }
 
@@ -239,6 +188,10 @@ class QuestionController extends Controller
         return $this->success($question);
     }
 
+    public function actionSubmit(){
+
+
+    }
     /**
      * actionGetQuestion() 获取问题和答案信息
      * @return mixed|string
